@@ -16,13 +16,16 @@ class App < Sinatra::Base
   get '/say/:number/:phrase' do
     str = ''
     (params[:number].to_i).times do
+      #turns number into integer then uses method times
       str += "#{params[:phrase]}\n"
+      #adds phrase to the empty str variable
     end
     str
   end
 
   get '/say/:word1/:word2/:word3/:word4/:word5' do
     "#{params[:word1]} #{params[:word2]} #{params[:word3]} #{params[:word4]} #{params[:word5]}."
+    #concatenates all words together
   end
 
   get '/:operation/:number1/:number2' do
@@ -42,5 +45,6 @@ class App < Sinatra::Base
       ans = "Unable to perform this opertaion"
     end
     ans.to_s
+    #need to use .to_s because operations result in integers
   end
 end
